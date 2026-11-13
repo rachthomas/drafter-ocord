@@ -1,7 +1,6 @@
 #import statements
 from drafter import *
 from dataclasses import dataclass
-from bakery import assert_equal
 import random
 
 #website desc and setup
@@ -343,6 +342,7 @@ def left (state: State) -> Page:
         if state.selection == "defense":
             state.selection = "cunning"
             return fight(state)
+        return fight(state)
     else:
         return fight(state)
 
@@ -365,6 +365,7 @@ def right (state: State) -> Page:
             return fight(state)
         if state.selection == "defense":
             return fight(state)
+        return fight(state)
     else:
         return fight(state)
 
@@ -694,4 +695,4 @@ starting_party =  [
 starting_monster = Monster("??? Beast", 500, "x", "x")
 
 #start server
-start_server(State("start", "x", starting_party, starting_monster, "x"))
+start_server(State("start", "x", starting_party, starting_monster, 0))
